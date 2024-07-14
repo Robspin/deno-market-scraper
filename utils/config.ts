@@ -43,18 +43,30 @@ export const markets: Markets[] = [
         name: 'BTC',
         ticker: 'BTCUSD',
         sentimentProviders: ['ICHIMOKU_GENERAL'],
-        // sentimentFunctions: [() => sentimentFunctions['ICHIMOKU_GENERAL']('BTCUSD')]
     },
     {
         name: 'ETH',
         ticker: 'ETHUSD',
         sentimentProviders: ['ICHIMOKU_GENERAL']
-        // sentimentFunction: () => sentimentFunctions['ICHIMOKU_GENERAL']('ETHUSD')
     },
     {
         name: 'DOGE',
         ticker: 'DOGE:USD',
         sentimentProviders: ['ICHIMOKU_GENERAL'],
-        // sentimentFunction: () => sentimentFunctions['ICHIMOKU_GENERAL']('DOGE:USD')
-    }
+    },
+    {
+        name: 'SOL',
+        ticker: 'SOLUSD',
+        sentimentProviders: ['ICHIMOKU_GENERAL'],
+    },
+    {
+        name: 'LTC',
+        ticker: 'LTCUSD',
+        sentimentProviders: ['ICHIMOKU_GENERAL'],
+    },
+    {
+        name: 'PEPE',
+        ticker: 'PEPE:USD',
+        sentimentProviders: ['ICHIMOKU_GENERAL'],
+    },
 ]
