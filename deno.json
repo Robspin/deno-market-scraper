@@ -1,5 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run -A --unstable main.ts"
+    "dev": "deno run -A --unstable main.ts",
+    "migrate": "deno run -A ./db/migrate.ts"
   }
 }

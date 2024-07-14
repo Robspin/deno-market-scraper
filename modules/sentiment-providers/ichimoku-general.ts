@@ -1,6 +1,7 @@
 // ichimoku cloud with 20 60 120 30 as settings
-import { getCandles } from '../utils/helpers/get-candles.ts'
-import { Sentiment } from '../utils/types.ts'
+import { getCandles } from '../../utils/helpers/get-candles.ts'
+import { Sentiment } from '../../utils/types.ts'
+import { sentimentObject } from '../../utils/config.ts'
 
 interface IchimokuData {
     tenkan: number;
@@ -60,9 +61,9 @@ const updateIchimokuState = (candles: any[], ichimokuData: IchimokuData): Ichimo
 const determineIchimokuSentiment = (state: IchimokuState): Sentiment => {
     const { priceAboveCloud, priceAboveTenkan, bullishCross, bullishCloud, priceBelowCloud } = state;
 
-    if (priceAboveCloud && priceAboveTenkan && bullishCross && bullishCloud) return 'bullish';
-    if (priceBelowCloud && !priceAboveTenkan && !bullishCross && !bullishCloud) return 'bearish';
-    return 'neutral';
+    if (priceAboveCloud && priceAboveTenkan && bullishCross && bullishCloud) return sentimentObject['bullish'];
+    if (priceBelowCloud && !priceAboveTenkan && !bullishCross && !bullishCloud) return sentimentObject['bearish'];
+    return sentimentObject['neutral'];
 };
 
 export const ichimokuGeneralSentimentProvider = async (

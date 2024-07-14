@@ -1,9 +1,16 @@
-import { writeJsonToFile } from './utils/helpers/write-to-json.ts'
-import { collectMarketSentiment } from './collect-market-sentiment.ts'
+import { collectMarketSentiment } from './modules/collect-market-sentiment.ts'
 import { env } from './utils/constants.ts'
+import { insertMarketSentimentsIntoDb } from './utils/db.ts'
+import { MarketSentimentRow } from './utils/types.ts'
 
 
 Deno.cron("Collect and write market sentiment", env.CRON_SETTINGS ?? '', async () => {
-    const marketSentiment = await collectMarketSentiment()
-    await writeJsonToFile(marketSentiment, `./temporary-json/${new Date().toISOString()}.json`)
+
+    setTimeout(async () => {
+        console.log(new Date().toISOString())
+        const marketSentiments: MarketSentimentRow[] = await collectMarketSentiment()
+        await insertMarketSentimentsIntoDb(marketSentiments)
+
+        // await writeJsonToFile(marketSentiment, `./temporary-json/${new Date().toISOString()}.json`)
+    }, 20000)
 })
