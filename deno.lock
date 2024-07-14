@@ -2,6 +2,7 @@
   "version": "3",
   "packages": {
     "specifiers": {
+      "npm:@neondatabase/serverless": "npm:@neondatabase/serverless@0.9.0",
       "npm:@neondatabase/serverless@^0.9.0": "npm:@neondatabase/serverless@0.9.0",
       "npm:drizzle-orm": "npm:drizzle-orm@0.30.7_@neondatabase+serverless@0.9.0",
       "npm:drizzle-orm@^0.30.7": "npm:drizzle-orm@0.30.7_@neondatabase+serverless@0.9.0",

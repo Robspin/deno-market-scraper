@@ -53,8 +53,6 @@ export async function insertMarketSentimentsIntoDb(inputData: MarketSentimentRow
                         .where(eq(marketSentiments.id, existing.id));
 
                     await sendEvent(`Market sentiment change! ${data.name} on ${provider.name} turned ${provider.sentiment.name}`, true)
-                } else {
-                    await sendEvent(`Checked market sentiment, no changes for ${data.name} on ${provider.name}, still ${provider.sentiment.name}`)
                 }
             } else {
                 await db.insert(marketSentiments).values({
