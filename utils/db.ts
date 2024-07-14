@@ -1,9 +1,9 @@
-import { drizzle } from 'drizzle-orm/neon-http'
-import { neon } from '@neondatabase/serverless'
+import { drizzle } from 'npm:drizzle-orm/neon-http'
+import { neon } from 'npm:@neondatabase/serverless'
 import { env } from './constants.ts'
 import * as schema from "../db/schema.ts"
 import { marketSentiments } from '../db/schema.ts'
-import { and, eq } from 'drizzle-orm'
+import { and, eq } from 'npm:drizzle-orm'
 import { v4 as uuidv4 } from 'npm:uuid'
 import { MarketSentimentRow } from './types.ts'
 import { sendEvent } from './event-api.ts'
