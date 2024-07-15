@@ -36,12 +36,6 @@ export async function insertMarketSentimentsIntoDb(inputData: MarketSentimentRow
                 if (existing.sentimentName !== provider.sentiment.name) {
                     changes.sentimentName = provider.sentiment.name;
                 }
-                if (existing.sentimentScore !== provider.sentiment.score) {
-                    changes.sentimentScore = provider.sentiment.score;
-                }
-                if (JSON.stringify(existing.details) !== JSON.stringify(provider.details)) {
-                    changes.details = provider.details;
-                }
 
                 if (Object.keys(changes).length > 0) {
                     await db
