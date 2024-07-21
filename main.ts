@@ -6,11 +6,9 @@ import { sendEvent } from './utils/event-api.ts'
 
 
 Deno.cron("Collect and write market sentiment", env.CRON_SETTINGS ?? '', async () => {
-    setTimeout(async () => {
-        const marketSentiments: MarketSentimentRow[] = await collectMarketSentiment()
-        await insertMarketSentimentsIntoDb(marketSentiments)
+    const marketSentiments: MarketSentimentRow[] = await collectMarketSentiment()
+    await insertMarketSentimentsIntoDb(marketSentiments)
 
-        await sendEvent(`Checked sentiment for ${marketSentiments.length} markets`)
-        // await writeJsonToFile(marketSentiment, `./temporary-json/${new Date().toISOString()}.json`)
-    }, 20000)
+    await sendEvent(`Checked sentiment for ${marketSentiments.length} markets`)
+    // await writeJsonToFile(marketSentiment, `./temporary-json/${new Date().toISOString()}.json`)
 })
